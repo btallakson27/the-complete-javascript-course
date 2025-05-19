@@ -9,11 +9,10 @@ require('dotenv').config() //require package called dotenv and use the config me
 
 // 1. initialize chatgpt api. allows us to interact with the API from our code base.
 
-const OPENAI_SECRET_KEY=process.env.OPENAI_SECRET_KEY //gets the api key, with whatever's
-// after .env being whatever you named your secret key. process.env is the code we use to
-//access the environment variables, the secret keys in the main file of our code so that they
-// can stay secure in our .env file, but still be read and used in our index.js code,
-// and consequently used to authenticate us with OpenAI. 
+const OPENAI_SECRET_KEY=process.env.OPENAI_SECRET_KEY //gets the api key.  
+// process.env accesses the environment variables such as the secret keys in the main file of your code so they
+// stay secure in our .env file, but still be read and used in our index.js code, and consequently used to authenticate us with OpenAI. 
+// after process.env is the name of your secret key.
 
 const configuration= new Configuration({
     apiKey: OPENAI_SECRET_KEY //this is the argument
