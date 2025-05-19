@@ -1,3 +1,5 @@
+// instantiate: to represent or be an example of something
+
 // initiliaze the chatgpt api , and then we are going to prompt the user for a message, and 
 // continue the conversation until the user ends the file. 
 
