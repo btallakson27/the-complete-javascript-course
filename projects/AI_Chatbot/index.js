@@ -14,11 +14,11 @@ const OPENAI_SECRET_KEY=process.env.OPENAI_SECRET_KEY //gets the api key.
 // stay secure in our .env file, but still be read and used in our index.js code, and consequently used to authenticate us with OpenAI. 
 // after process.env is the name of your secret key.
 
-const configuration= new Configuration({
+const configuration= new Configuration({ // creates a new configuration object for the OpenAIApi using the Configuration class. It uses the API key you just pulled from the environment to authenticate. 
     apiKey: OPENAI_SECRET_KEY //this is the argument
 })
 
-const openai=new OpenAIApi(configuration)
+const openai=new OpenAIApi(configuration) // instantiates the OpenAI client (openai) using the configuration you just made. This object (openai) can now be used to send requests like openai.createChatCompletion(...)
 
 // 2. create context for the api (give it some personality)
 
