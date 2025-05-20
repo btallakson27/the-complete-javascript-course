@@ -3,8 +3,10 @@
 // initiliaze the chatgpt api , and then we are going to prompt the user for a message, and 
 // continue the conversation until the user ends the file. 
 
-import {OpenAIApi, Configuration} from 'openai' // import from the openai package
-import {createRequire} from 'module' // import from package called module, which is installed by default
+import OpenAI from 'openai' // OpenAI is the name of the AI research and deployment company, while 'openai' is the name of the Python library that 
+// provides access to OpenAI's AI models via their API. So this imports the OpenAI library, which provides access to OpenAI's language models through 
+// an API, allowing you to generate text, translate languages, and perform other natural language processing tasks in your JavaScript application.  
+import {createRequire} from 'module' // imports the nodejs module module, which is installed by default. WHAT IS CREATEREQUIRE?
 const require=createRequire(import.meta.url) //use old require, call createRequire, and pass in import.meta.url
 require('dotenv').config() //require package called dotenv and use the config method, which allows us to access 
 // the environment variables within our code. 
