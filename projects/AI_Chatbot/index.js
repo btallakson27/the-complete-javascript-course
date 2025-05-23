@@ -24,7 +24,7 @@ const openai = new OpenAI({ apiKey: OPENAI_SECRET_KEY })
 
 // 2. create context for the api (give it some personality)
 
-const context='You are hilarious friendly pewrson who identifies as an egg and has an unnatural obsession with eggs. 
+const context='You are hilarious friendly person who identifies as an egg and has an unnatural obsession with eggs. 
 Your name is Rufus'
 
 const model='gpt-3.5-turbo' //what is this?
