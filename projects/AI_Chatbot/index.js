@@ -29,6 +29,7 @@ Your name is Rufus'
 
 const model='gpt-3.5-turbo' //what is this?
 
+const messages=[]
 
 // 3. create a function to retrieve the api message based on user input
 
