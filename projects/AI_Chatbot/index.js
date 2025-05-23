@@ -9,11 +9,12 @@ const require=createRequire(import.meta.url) // createRequire creates a version 
 require('dotenv').config() // This line is commonly used in Node.js projects to load environment variables from a .env file into process.env 
 
 // 1. initialize chatgpt api. allows us to interact with the API from our code base.
+// This code snippet is configuring access to the OpenAI API by using a secret key 
+// stored in an environment variable.
 
-const OPENAI_SECRET_KEY=process.env.OPENAI_SECRET_KEY //gets the api key.  
-// process.env accesses the environment variables such as the secret keys in the main file of your code so they
-// stay secure in our .env file, but still be read and used in our index.js code, and consequently used to authenticate us with OpenAI. 
-// after process.env is the name of your secret key.
+const OPENAI_SECRET_KEY=process.env.OPENAI_SECRET_KEY // reads an environment variable named OPENAI_SECRET_KEY.
+// process.env is a special object in Node.js that gives you access to environment variables.
+// This allows you to keep the secret API key out of your code, which is more secure.
 
 const openai = new OpenAI({
     apiKey: OPENAI_SECRET_KEY
