@@ -19,6 +19,10 @@ const OPENAI_SECRET_KEY=process.env.OPENAI_SECRET_KEY // reads an environment va
 const openai = new OpenAI({
     apiKey: OPENAI_SECRET_KEY
 })
+// creates a new instance of the OpenAI client. 
+// The API key is passed in via an options object { apiKey: ... }
+// This key is necessary to authenticate your app when making requests to OpenAI's services.
+// This code securely loads your OpenAI API key from an environment variable and initializes the OpenAI client using that key.
 
 // 2. create context for the api (give it some personality)
 
