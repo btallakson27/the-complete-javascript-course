@@ -1,22 +1,12 @@
-// instantiate: to represent or be an example of something
-// What is a dependency? any external code or module that your project relies on to function properly.
-// What is a module? nothing more than a file that exports it's own code. this allows developers to organize code within their own projects or share code with the 
-// world through package managers like NPM. In modern front-end development, it's most common to use ES modules which became an official language feature in 2015.
-// exporting your file allows other files to use an import statement to import this file as a dependency. 
-// What is ESM? ESM stands for ES
-
 // initiliaze the chatgpt api , and then we are going to prompt the user for a message, and 
 // continue the conversation until the user ends the file. 
 
-import OpenAI from 'openai' // OpenAI is the name of the AI research and deployment company, while 'openai' is the name of the Python library that 
-// provides access to OpenAI's AI models via their API. So this imports the OpenAI library, which provides access to OpenAI's language models through 
+import OpenAI from 'openai' // imports the OpenAI library, which provides access to OpenAI's language models through 
 // an API, allowing you to generate text, translate languages, and perform other natural language processing tasks in your JavaScript application.  
-import {createRequire} from 'module' // imports the createRequire function from Node.js's built in module, 'module' and is used in ES Modules (ESM) 
-// in Node.js environments to allow importing CommonJS modules or using the CommonJS require function within an ES module. basically, createRequire
-// bridges ESM and CommonJS in Node.js.
-const require=createRequire(import.meta.url) //use old require, call createRequire, and pass in import.meta.url
-require('dotenv').config() //require package called dotenv and use the config method, which allows us to access 
-// the environment variables within our code. 
+import {createRequire} from 'module' // imports the createRequire function from Node.js's built in module, 'module' so you can require()
+const require=createRequire(import.meta.url) // createRequire creates a version of require() that works inside an ESM file. Import.meta.url is a 
+// special variable in ESM that contains the URL of the current module (file). It's needed by createRequire() to know the file’s location so it can resolve module paths correctly.
+require('dotenv').config() // This line is commonly used in Node.js projects to load environment variables from a .env file into process.env 
 
 // 1. initialize chatgpt api. allows us to interact with the API from our code base.
 
