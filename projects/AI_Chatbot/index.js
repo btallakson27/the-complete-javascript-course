@@ -33,39 +33,39 @@ const messages=[]
 
 // 3. create a function to retrieve the api message based on user input
 
-async function sendPrompt() {
-    const current_messages = [
+async function sendPrompt() { //Sends messages to OpenAI and handles responses.
+    const current_messages = [ //current_messages: Constructs the list of messages to send, starting with a system message (from context) and including all prior messages (...messages). This helps set up context and maintain the chat history.
         {
             "role": "system",
             "content": context
         },
-        ...messages
+        ...messages //includes all prior messages
     ]
 
-    const completion = await openai.chat.completions.create({
+    const completion = await openai.chat.completions.create({ //Sends the request to OpenAI using the model (e.g., "gpt-4"), along with the current conversation history.
         model,
         messages: current_messages
     })
 
-    let response = completion.choices[0].message
-    messages.push(response)
-    console.log(response.content)
-    getUserInput()
+    let response = completion.choices[0].message //Extracts the model's response.
+    messages.push(response) //Adds it to the conversation (messages).
+    console.log(response.content) //Logs it to the console.
+    getUserInput() //Calls getUserInput() to continue the conversation loop.
 }
 
 // 4. create a run function that requests a user input
 
-async function run() {
-    getUserInput()
+async function run() { 
+    getUserInput() //Asks the user for a message.
 }
 
 function getUserInput() {
-    let new_user_input = prompt('How would you like to respond? ')
-    messages.push({
+    let new_user_input = prompt('How would you like to respond? ') //Uses prompt() to get user input from the terminal.
+    messages.push({ //Adds the user message to the conversation history.
         'role': 'user',
         "content": new_user_input
     })
-    sendPrompt()
+    sendPrompt() //Calls sendPrompt() to continue the exchange with the model.
 }
 
-run()
+run() //Starts the conversation. This initializes the chat by calling getUserInput() the first time.
