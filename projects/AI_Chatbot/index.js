@@ -34,7 +34,7 @@ const messages=[]
 // 3. create a function to retrieve the api message based on user input
 
 async function sendPrompt() { //Sends messages to OpenAI and handles responses.
-    const current_messages = [ //current_messages: Constructs the list of messages to send, starting with a system message (from context) and including all prior messages (...messages). This helps set up context and maintain the chat history.
+    const current_messages = [ ////this part creates the messages the user is sending. current_messages: Constructs the list of messages to send, starting with a system message (from context) and including all prior messages (...messages). This helps set up context and maintain the chat history.
         {
             "role": "system",
             "content": context
@@ -42,12 +42,12 @@ async function sendPrompt() { //Sends messages to OpenAI and handles responses.
         ...messages //includes all prior messages
     ]
 
-    const completion = await openai.chat.completions.create({ //Sends the request to OpenAI using the model (e.g., "gpt-4"), along with the current conversation history.
-        model, //same as doing model: model
-        messages: current_messages
+    const completion = await openai.chat.completions.create({ ////this part communicates with OpenAI API and get a response from ChatGPT. Sends the request to OpenAI using the model (e.g., "gpt-4"), along with the current conversation history.
+        model, //same as doing model: model. the model used from OpenAI
+        messages: current_messages //the messages user sends
     })
 
-    let response = completion.choices[0].message //Extracts the model's response.
+    let response = completion.choices[0].message //choices is an array. Extracts the model's response. 
     messages.push(response) //Adds it to the conversation (messages).
     console.log(response.content) //Logs it to the console.
     getUserInput() //Calls getUserInput() to continue the conversation loop.
