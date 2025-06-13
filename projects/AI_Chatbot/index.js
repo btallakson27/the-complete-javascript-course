@@ -43,7 +43,7 @@ async function sendPrompt() { //Sends messages to OpenAI and handles responses.
     ]
 
     const completion = await openai.chat.completions.create({ //Sends the request to OpenAI using the model (e.g., "gpt-4"), along with the current conversation history.
-        model,
+        model, //same as doing model: model
         messages: current_messages
     })
 
