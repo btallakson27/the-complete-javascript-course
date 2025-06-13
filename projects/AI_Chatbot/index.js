@@ -47,7 +47,7 @@ async function sendPrompt() { //Sends messages to OpenAI and handles responses.
         messages: current_messages //the messages user sends
     })
 
-    let response = completion.choices[0].message //choices is an array. Extracts the model's response. 
+    let response = completion.choices[0].message // This says, take the "completion" from above, which is the response from ChatGPT, and extract the model's response, which is the first message in the choices array.
     messages.push(response) //Adds it to the conversation (messages).
     console.log(response.content) //Logs it to the console.
     getUserInput() //Calls getUserInput() to continue the conversation loop.
