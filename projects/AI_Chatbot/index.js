@@ -43,12 +43,17 @@ async function sendPrompt() { //Sends messages to OpenAI and handles responses.
         ...messages //includes all prior messages
     ]
 
-    const completion = await openai.chat.completions.create({ ////this part communicates with OpenAI API and get a response from ChatGPT. Sends the request to OpenAI using the model (e.g., "gpt-4"), along with the current conversation history.
-        model, //same as doing model: model. the model used from OpenAI
-        messages: current_messages //the messages user sends
+    const completion = await openai.chat.completions.create({ //You're telling OpenAI: “Here's a list of messages (e.g., a conversation so far), 
+        //and this is the model I want to use — now generate the next message in the conversation.”this part communicates with OpenAI API and get 
+        //a response from ChatGPT. Sends the request to OpenAI using the model (e.g., "gpt-4"), along with the current conversation history.
+        //completions — this is the part of the API responsible for generating "chat completions", meaning full responses from the assistant based 
+        //on the messages you send in.
+        model, 
+        messages: current_messages 
     })
 
     let response = completion.choices[0].message // This says, take the "completion" from above, which is the response from ChatGPT, and extract the model's response, which is the first message in the choices array.
+    //choices is an array containing one or more generated responses (called "choices") from the model.
     messages.push(response) //Adds it to the conversation (messages).
     console.log(response.content) //Logs it to the console. // this gets created after the getUserInput function is made below. 
     getUserInput() //this gets created after the getUserInput function is made below.  Calls getUserInput() to continue the conversation loop.
