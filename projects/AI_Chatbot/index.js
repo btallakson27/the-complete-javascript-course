@@ -6,6 +6,7 @@ import OpenAI from 'openai' // imports the OpenAI library, which provides access
 import {createRequire} from 'module' // imports the createRequire function from Node.js's built in module, 'module' so you can require()
 const require=createRequire(import.meta.url) // createRequire creates a version of require() that works inside an ESM file. Import.meta.url is a 
 // special variable in ESM that contains the URL of the current module (file). It's needed by createRequire() to know the file’s location so it can resolve module paths correctly.
+const prompt=require('prompt-sync)() // allows your code to prompt user with text. you wait to this until after you create the prompt element below. 
 require('dotenv').config() // This line is commonly used in Node.js projects to load environment variables from a .env file into process.env 
 
 // 1. initialize chatgpt api. allows us to interact with the API from our code base.
@@ -49,18 +50,18 @@ async function sendPrompt() { //Sends messages to OpenAI and handles responses.
 
     let response = completion.choices[0].message // This says, take the "completion" from above, which is the response from ChatGPT, and extract the model's response, which is the first message in the choices array.
     messages.push(response) //Adds it to the conversation (messages).
-    console.log(response.content) //Logs it to the console.
-    getUserInput() //Calls getUserInput() to continue the conversation loop.
+    console.log(response.content) //Logs it to the console. // this gets created after the getUserInput function is made below. 
+    getUserInput() //this gets created after the getUserInput function is made below.  Calls getUserInput() to continue the conversation loop.
 }
 
 // 4. create a run function that requests a user input
 
-async function run() { 
-    getUserInput() //Asks the user for a message.
+async function run() { //initiates the getUserInput function, which then initiates the sendPrompt function. 
+    getUserInput() 
 }
 
 function getUserInput() {
-    let new_user_input = prompt('How would you like to respond? ') //Uses prompt() to get user input from the terminal.
+    let new_user_input = prompt('How would you like to respond? ') //Uses prompt() to get user input from the terminal. for this you must also add this line of code in the top section above. 
     messages.push({ //Adds the user message to the conversation history.
         'role': 'user',
         "content": new_user_input
