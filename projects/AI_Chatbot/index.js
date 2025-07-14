@@ -35,8 +35,8 @@ const messages=[]
 // 3. create a function to retrieve the api message based on user input
 
 async function sendPrompt() { //Sends messages to OpenAI and handles responses.
-    const current_messages = [ // It's in an array since it's a message. this part creates the messages the user is sending. current_messages: 
-        // Constructs the list of messages to send, starting with a system message (from context) and including all prior messages (...messages). 
+    const current_messages = [ // This is your conversation. It's in an array since it's full of messages. current_messages: constructs the list of 
+        // messages to send, starting with a system message (from context) and including all prior messages (...messages). 
         // This helps set up context and maintain the chat history.
         {
             "role": "system", // Sets the rules, tone, or personality of the assistant. So you're saying you want the chatbot to have the personality below.
@@ -45,13 +45,14 @@ async function sendPrompt() { //Sends messages to OpenAI and handles responses.
         ...messages //includes all prior messages
     ]
 
-    const completion = await openai.chat.completions.create({ 
+    const completion = await openai.chat.completions.create({ // Simply put, this sends your conversation (current_messages) to the OpenAI API, 
+        // waits for the model to respond, and stores the response in completion. "create" generates the assistant's reply based on the conversation.
         //The dots are the property access operator in JavaScript. They are used to access nested objects or functions within an object. 
         // Think of it like accessing folders inside folders. It calls the create method from the deeply nested openai.chat.completions path,
         // waits for the model to respond, and stores the result in the completion variable.
-
-        model, 
-        messages: current_messages 
+        // await waits for the OpenAI API to respond before continuing the code. 
+        model, // defined above as gpt-3.5-turbo
+        messages: current_messages // This is the conversation history, formatted as an array of objects with role and content (defined above)
     })
 
     let response = completion.choices[0].message // This says, take the "completion" from above, which is the response from ChatGPT, 
