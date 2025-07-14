@@ -71,12 +71,12 @@ async function run() { //initiates the getUserInput function, which then initiat
 }
 
 function getUserInput() {
-    let new_user_input = prompt('How would you like to respond? ') //Uses prompt() to get user input from the terminal. for this you must also add this line of code in the top section above. 
+    let new_user_input = prompt('How would you like to respond? ') //Uses prompt() to get user input from the terminal. for this you must also add a line of code to the section at the very top. 
     messages.push({ //Adds the user message to the conversation history.
-        'role': 'user',
-        "content": new_user_input
+        'role': 'user', // lets it know the user will be responding
+        "content": new_user_input // and their responses will come from new_user_input
     })
-    sendPrompt() //Calls sendPrompt() to continue the exchange with the model.
+    sendPrompt() // Sends user messages to OpenAI to continue the conversation with the model.
 }
 
 run() //Starts the conversation. This initializes the chat by calling getUserInput() the first time.
