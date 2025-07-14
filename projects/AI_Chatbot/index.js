@@ -39,11 +39,8 @@ async function sendPrompt() { //Sends messages to OpenAI and handles responses.
         // Constructs the list of messages to send, starting with a system message (from context) and including all prior messages (...messages). 
         // This helps set up context and maintain the chat history.
         {
-            "role": "system", 
-            // The system message is a special instruction to set the behavior, personality, or context of the assistant. It's like giving the
-            // model a role or tone before the conversation starts.
-            "content": context 
-            // you already gave the assistant a personality above defined as 'context' so that's what the "content" is.
+            "role": "system", // Sets the rules, tone, or personality of the assistant. So you're saying you want the chatbot to have the personality below.
+            "content": context // you already gave the assistant a personality above defined as 'context' so that's what the "content" is.
         },
         ...messages //includes all prior messages
     ]
