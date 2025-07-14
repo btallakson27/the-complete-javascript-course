@@ -43,12 +43,13 @@ async function sendPrompt() { //Sends messages to OpenAI and handles responses.
         ...messages //includes all prior messages
     ]
 
-    const completion = await openai.chat.completions.create({ //The dots are the property access operator in JavaScript. They are used to access nested objects or functions within an object. 
-        // So the openai object is structured with the chat within it, then completions, then create. Allowing you to access create. But why do I want to access create?
-        // You're telling OpenAI: “Here's a list of messages (e.g., a conversation so far), 
-        // and this is the model I want to use — now generate the next message in the conversation.”this part communicates with OpenAI API and get 
-        //a response from ChatGPT. Sends the request to OpenAI using the model (e.g., "gpt-4"), along with the current conversation history.
-        //completions — this is the part of the API responsible for generating "chat completions", meaning full responses from the assistant based on the messages you send in.
+    const completion = await openai.chat.completions.create({ //The dots are the property access operator in JavaScript. They are used to access nested objects or 
+        // functions within an object. Think of it like accessing folders inside folders. 
+        // openai — is the main object for the OpenAI client.
+        // openai.chat — accesses the chat namespace (used for GPT-style chat models).
+        // openai.chat.completions — accesses the completions API under chat (used to generate replies).
+        // openai.chat.completions.create — accesses the function that sends a request to the model to generate a chat response.
+
         model, 
         messages: current_messages 
     })
