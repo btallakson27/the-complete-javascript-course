@@ -35,7 +35,7 @@ const messages=[]
 // 3. create a function to retrieve the api message based on user input
 
 async function sendPrompt() { //Sends messages to OpenAI and handles responses.
-    const current_messages = [ ////this part creates the messages the user is sending. current_messages: Constructs the list of messages to send, starting with a system message (from context) and including all prior messages (...messages). This helps set up context and maintain the chat history.
+    const current_messages = [ //in an array since it's a message. this part creates the messages the user is sending. current_messages: Constructs the list of messages to send, starting with a system message (from context) and including all prior messages (...messages). This helps set up context and maintain the chat history.
         {
             "role": "system",
             "content": context
