@@ -59,8 +59,9 @@ async function sendPrompt() { //Sends messages to OpenAI and handles responses.
     // and extract the model's response, which is the first message in the choices array.
     //choices is an array containing one or more generated responses (called "choices") from the model.
     messages.push(response) //Adds it to the conversation (messages).
-    console.log(response.content) //Logs it to the console. // this gets created after the getUserInput function is made below. 
-    getUserInput() //this gets created after the getUserInput function is made below.  Calls getUserInput() to continue the conversation loop.
+    console.log(response.content) //Logs it to the console. You log to the console so you can see what the assistant responded with. This is 
+    // especially important in a terminal-based or backend chat app where there's no GUI. 
+    getUserInput() // prompts user for their next message. included here after the getUserInput function is made below. 
 }
 
 // 4. create a run function that requests a user input
