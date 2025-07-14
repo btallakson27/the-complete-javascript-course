@@ -43,8 +43,8 @@ async function sendPrompt() { //Sends messages to OpenAI and handles responses.
         ...messages //includes all prior messages
     ]
 
-    const completion = await openai.chat.completions.create({ //The dots are the property access operator in JavaScript. They are used to access nested objects or 
-        // functions within an object. Think of it like accessing folders inside folders. 
+    const completion = await openai.chat.completions.create({ //The dots are the property access operator in JavaScript. They are used to access 
+        // nested objects or functions within an object. Think of it like accessing folders inside folders. 
         // openai — is the main object for the OpenAI client.
         // openai.chat — accesses the chat namespace (used for GPT-style chat models).
         // openai.chat.completions — accesses the completions API under chat (used to generate replies).
