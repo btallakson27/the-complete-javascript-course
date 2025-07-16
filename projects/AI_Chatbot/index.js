@@ -45,15 +45,16 @@ async function sendPrompt() { //Sends messages to OpenAI and handles responses.
         ...messages //includes all prior messages
     ]
 
-    const completion = await openai.chat.completions.create({ // Simply put, this sends your conversation (current_messages) to the OpenAI API, 
-        // waits for the model to respond, and stores the response in completion. "create" generates the assistant's reply based on the conversation.
-        //The dots are the property access operator in JavaScript. They are used to access nested objects or functions within an object. 
-        // Think of it like accessing folders inside folders. It calls the create method from the deeply nested openai.chat.completions path,
-        // waits for the model to respond, and stores the result in the completion variable.
-        // await waits for the OpenAI API to respond before continuing the code. 
+    const completion = await openai.chat.completions.create({
         model, // defined above as gpt-3.5-turbo
         messages: current_messages // This is the conversation history, formatted as an array of objects with role and content (defined above)
     })
+    // Simply put, this sends your conversation (current_messages) to the OpenAI API, 
+    // waits for the model to respond, and stores the response in completion. "create" generates the assistant's reply based on the conversation.
+    //The dots are the property access operator in JavaScript. They are used to access nested objects or functions within an object. 
+    // Think of it like accessing folders inside folders. It calls the create method from the deeply nested openai.chat.completions path,
+    // waits for the model to respond, and stores the result in the completion variable.
+    // await waits for the OpenAI API to respond before continuing the code. 
 
     let response = completion.choices[0].message // This says, take the "completion" from above, which is the response from ChatGPT, 
     // and extract the model's response, which is the first message in the choices array.
