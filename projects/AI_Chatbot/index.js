@@ -50,20 +50,27 @@ async function sendPrompt() { //Sends messages to OpenAI and handles responses.
         messages: current_messages // This is the conversation history, formatted as an array of objects with role and content (defined above)
     })
     // Simply put, this sends your conversation (current_messages) to the OpenAI API, 
-    // waits for the model to respond, and stores the response in completion. "create" generates the assistant's reply based on the conversation.
+    // waits for the model to respond, and stores the response in completion. 
     //The dots are the property access operator in JavaScript. They are used to access nested objects or functions within an object. 
     // Think of it like accessing folders inside folders. It calls the create method from the deeply nested openai.chat.completions path,
     // waits for the model to respond, and stores the result in the completion variable.
     // await waits for the OpenAI API to respond before continuing the code. 
+    // "create" generates the assistant's reply based on the conversation. 
+    // 'model'is parameter that tells the OpenAI API which language model to use when generating the chat completion.
+    // It's a string identifier. gpt-3.5-turbo is cheaper, faster, and good for lighter tasks. It's necessary because
+    // OpenAI offers multiple models, and each has different capabilities, costs, and speeds. Think of it like choosing
+    // a tool for a job. You choose an AI model based on what kind of work you want done. 
 
-    let response = completion.choices[0].message // This says, take the "completion" from above, which is the response from ChatGPT, 
-    // and extract the model's response, which is the first message in the choices array.
-    //choices is an array containing one or more generated responses (called "choices") from the model.
+    let response = completion.choices[0].message 
     messages.push(response) //Adds it to the conversation (messages).
-    console.log(response.content) //Logs it to the console. You log to the console so you can see what the assistant responded with. This is 
-    // especially important in a terminal-based or backend chat app where there's no GUI. 
+    console.log(response.content) 
     getUserInput() // prompts user for their next message. included here after the getUserInput function is made below. 
 }
+    // This says, take the "completion" from above, which is the response from ChatGPT, 
+    // and extract the model's response, which is the first message in the choices array.
+    //choices is an array containing one or more generated responses (called "choices") from the model.
+    //Log to the console so you can see what the assistant responded with. This is 
+    // especially important in a terminal-based or backend chat app where there's no GUI. 
 
 // 4. create a run function that requests a user input
 
