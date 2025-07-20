@@ -149,7 +149,7 @@
     </main>
     <script>
         // I can write javascript in here
-        // 1. initialize list of todos and show them
+        // 1. initialize todo list and write a function to show them
 
         let mainContainer = document.querySelector('main')
         let addBtn = document.getElementById('addBtn')
@@ -159,7 +159,7 @@
 
         function paintUI() {
             let new_inner_html = ''
-            for (let i = 0; i < todo_list.length; i++) {
+            for (let i = 0; i < todo_list.length; i++) { // pasting this div adds onto our string an entire div for every todo that we have in the item. change the p tag in it so it updates with each todo you add, buttons and all.
                 const todo = todo_list[i]
                 new_inner_html += `
                 <div class="todoItem">
