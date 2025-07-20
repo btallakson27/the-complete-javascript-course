@@ -143,7 +143,7 @@
     </main>
     <script>
         // I can write javascript in here
-        // step 1 - initialize our list of todos && display the todos
+        // 1. initialize list of todos and show them
 
         let mainContainer = document.querySelector('main')
         let addBtn = document.getElementById('addBtn')
@@ -171,7 +171,7 @@
 
         paintUI()
 
-        // step 2 - write a function that allows us to add a new todo
+        // 2. write a function to add todos
 
         function addTodo() {
             let current_todo = todoInput.value
@@ -185,7 +185,7 @@
         addBtn.addEventListener('click', addTodo)
 
 
-        // step 3 - write a function that allows us to delete a todo
+        // write a function to delete todos
 
         function deleteTodo(index) {
             let new_todo_list = todo_list.filter((current_value, current_index) => {
@@ -196,7 +196,7 @@
             paintUI()
         }
 
-        // step 4 - write a function that allows us to edit a todo
+        // 4. write a function to edit todos
 
         function editTodo(index) {
             let current_todo = todo_list[index]
@@ -204,7 +204,7 @@
             deleteTodo(index)
         }
 
-        // step 5 - persist all information
+        // 5. write a function that saves all of the information so it's not lost when refreshing the page
 
         function saveData() {
             localStorage.setItem('todo-list', JSON.stringify({ todo_list }))
