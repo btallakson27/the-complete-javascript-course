@@ -151,14 +151,14 @@
         // I can write javascript in here
         // 1. initialize todo list and write a function to show them
 
-        let mainContainer = document.querySelector('main')
+        let mainContainer = document.querySelector('main') // will be the section where to-do items are displayed.
         let addBtn = document.getElementById('addBtn')
         let todoInput = document.getElementById('todoInput')
 
-        let todo_list = localStorage.getItem('todo-list') ? JSON.parse(localStorage.getItem('todo-list')).todo_list : []
+        let todo_list = localStorage.getItem('todo-list') ? JSON.parse(localStorage.getItem('todo-list')).todo_list : [] //sets up an empty array to hold to-do items
 
         function paintUI() {
-            let new_inner_html = ''
+            let new_inner_html = '' // Creates a string of HTML (new_inner_html) by looping through the todo_list. 
             for (let i = 0; i < todo_list.length; i++) { // pasting this div adds onto our string an entire div for every todo that we have in the item. change the p tag in it so it updates with each todo you add, buttons and all.
                 const todo = todo_list[i]
                 new_inner_html += `
@@ -171,8 +171,8 @@
                 </div>
                 `
             }
-            mainContainer.innerHTML = new_inner_html
-            saveData()
+            mainContainer.innerHTML = new_inner_html // After the loop, it replaces the contents of the <main> element with this new HTML.
+            saveData() // Finally, it calls saveData() — presumably a function defined elsewhere to store the list (maybe in localStorage).
         }
 
         paintUI()
