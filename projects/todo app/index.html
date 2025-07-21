@@ -158,7 +158,7 @@
         let todo_list = localStorage.getItem('todo-list') ? JSON.parse(localStorage.getItem('todo-list')).todo_list : [] //sets up an empty array to hold to-do items
 
         function paintUI() {
-            let new_inner_html = '' // This initializes an empty string. Then, inside the for loop, the string is incrementally built by adding HTML for each to-do item.
+            let new_inner_html = '' // This initializes an empty string. Then, inside the for loop, the string is incrementally built by adding HTML for each to-do item. Think of new_inner_html like a blank canvas 🖼️. With each loop, you’re painting a part of the picture. When the loop finishes, you hang the completed artwork on the wall (mainContainer.innerHTML = ...).
             for (let i = 0; i < todo_list.length; i++) { // pasting this div adds onto our string an entire div for every todo that we have in the item. change the p tag in it so it updates with each todo you add, buttons and all.
                 const todo = todo_list[i]
                 new_inner_html += ` <!--Each loop iteration adds (+=) a new block of HTML to new_inner_html for a single item in the todo_list.-->
