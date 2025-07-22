@@ -180,12 +180,12 @@
         // 2. write a function to add todos
 
         function addTodo() {
-            let current_todo = todoInput.value
-            if (!current_todo) { return }
+            let current_todo = todoInput.value // assign the variable 'current_todo' to the value typed in the input bar
+            if (!current_todo) { return } // if the input bar is empty, exit the function
 
-            todo_list.push(current_todo)
-            todoInput.value = ''
-            paintUI()
+            todo_list.push(current_todo) // but if there is a value in the input bar, push it into the 'current_todo'
+            todoInput.value = '' // clears the value of the input after the todo has been added
+            paintUI() // then run the paintUI function to put this new item in the list
         }
 
         addBtn.addEventListener('click', addTodo)
