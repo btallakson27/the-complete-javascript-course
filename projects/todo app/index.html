@@ -191,15 +191,15 @@
         addBtn.addEventListener('click', addTodo)
 
 
-        // write a function to delete todos
+        // 3. write a function to delete todos
 
-        function deleteTodo(index) {
-            let new_todo_list = todo_list.filter((current_value, current_index) => {
-                return current_index !== index
+        function deleteTodo(index) { // this index represents the position in the list of all of the item to be deleted
+            let new_todo_list = todo_list.filter((current_value, current_index) => { // creates a new array that loops through each item in the todo_list
+                return current_index !== index // tells .filter to keep (return) any item whose index is not equal to the one we want to delete. it excludes the item in the given index.
             })
 
-            todo_list = new_todo_list
-            paintUI()
+            todo_list = new_todo_list // after filtering out the unwanted item, it replaces the original todo_list with the new filtered one.
+            paintUI() // updates the UI
         }
 
         // 4. write a function to edit todos
