@@ -213,7 +213,8 @@
         // 5. write a function that saves all of the information so it's not lost when refreshing the page
 
         function saveData() {
-            localStorage.setItem('todo-list', JSON.stringify({ todo_list }))
+            localStorage.setItem('todo-list', JSON.stringify // whenever we call saveData, it's going to save our todo list, under the title 'todo-list' to our local storage. localStorage is a built-in web API that lets you store data in the browser — specifically in key-value pairs — that persists even after the page is reloaded or the browser is closed.
+            ({ todo_list })) // { todo_list } is shorthand syntax for: { todo_list: todo_list } So it creates an object where the key is 'todo_list' and the value is whatever variable named todo_list currently holds (likely an array of to-do items). JSON.stringify(...) turns that object into a JSON-formatted string so it can be stored in localStorage.
         }
 
 
