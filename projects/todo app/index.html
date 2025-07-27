@@ -193,7 +193,7 @@
 
         // 3. write a function to delete todos
 
-        function deleteTodo(index) { // this index represents the position in the list of all of the item to be deleted
+        function deleteTodo(index) { // this index represents the position in the list of all of the item to be deleted. this needs an onclick attribute added to the button in the html above because you need to access it at it's index.
             let new_todo_list = todo_list.filter((current_value, current_index) => { // creates a new array that loops through each item in the todo_list
                 return current_index !== index // tells .filter to keep (return) any item whose index is not equal to the one we want to delete. it excludes the item in the given index.
             })
@@ -204,7 +204,7 @@
 
         // 4. write a function to edit todos
 
-        function editTodo(index) {
+        function editTodo(index) { //this needs an onclick attribute added to the button in the html above because you need to access it at it's index.
             let current_todo = todo_list[index]
             todoInput.value = current_todo
             deleteTodo(index)
