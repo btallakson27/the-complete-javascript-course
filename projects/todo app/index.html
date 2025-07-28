@@ -155,7 +155,8 @@
         let addBtn = document.getElementById('addBtn')
         let todoInput = document.getElementById('todoInput')
 
-        let todo_list = localStorage.getItem('todo-list') ? JSON.parse(localStorage.getItem('todo-list')).todo_list : [] //sets up an empty array to hold to-do items
+        let todo_list = localStorage.getItem('todo-list') ? // Tries to retrieve a string from localStorage saved under the key 'todo-list'. ? is the ternary operator, it's shorthand for if...else. checks if localStorage.getItem('todo-list') returns something truthy (i.e. data exists), and if it does, it parses the saved JSON string into a JavaScript object. Then accesses the .todo_list property of that object.
+        JSON.parse(localStorage.getItem('todo-list')).todo_list : [] // f nothing was found (i.e. it returns null), then it defaults to an empty array: []
 
         function paintUI() {
             let new_inner_html = '' // This initializes an empty string. Then, inside the for loop, the string is incrementally built by adding HTML for each to-do item. Think of new_inner_html like a blank canvas 🖼️. With each loop, you’re painting a part of the picture. When the loop finishes, you hang the completed artwork on the wall (mainContainer.innerHTML = ...).
