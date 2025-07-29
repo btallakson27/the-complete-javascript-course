@@ -186,6 +186,7 @@
             todo_list.push(current_todo) // but if there is a value in the input bar, push it into the 'current_todo'
             todoInput.value = '' // clears the value of the input after the todo has been added
             paintUI() // then run the paintUI function to put this new item in the list
+            saveData() 
         }
 
         addBtn.addEventListener('click', addTodo)
@@ -200,6 +201,7 @@
 
             todo_list = new_todo_list // after filtering out the unwanted item, it replaces the original todo_list with the new filtered one.
             paintUI() // updates the UI
+            saveData()
         }
 
         // 4. write a function to edit todos
@@ -208,6 +210,9 @@
             let current_todo = todo_list[index]
             todoInput.value = current_todo
             deleteTodo(index)
+
+            paintUI() // must be inside function so it runs when the function is called, rather than running immediately when the script loads.
+            saveData() // must be inside function so it runs when the function is called, rather than running immediately when the script loads.
         }
 
         // 5. write a function that saves all of the information so it's not lost when refreshing the page
