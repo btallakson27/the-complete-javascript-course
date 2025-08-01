@@ -1,33 +1,31 @@
-const fs = require ('fs') // fs refers to the File System module. This core module provides an API for interacting with the
-// file system on your computer. It allows Node.js applications to perform various operations related to files and directories.
+const fs = require ('fs') // This imports Node's built-in File System (fs) module, which allows you to read and write files on your computer.
 
-function readDb(dbName ='db.json'){
-    // read JSON object from file
-    const data=fs.readFileSync(dbName, 'utf-8') // accesses the data from the File System (your local computer?)
+function readDb(dbName ='db.json'){ // reads data from a JSON file. 
+    const data=fs.readFileSync(dbName, 'utf-8') // accesses the data from the File System, under the name dbName synchronously as a UTF-8 string.
+    // UTF-8 stands for "Unicode Transformation Format - 8-bit". basically a way of turning letters, symbols, and emojis into bytes that computers
+    // can store and understand. Why do we need it? Computers don't understand letters like A or あ or 🚀 — they understand binary numbers (0s and 1s).
+    // To store or send text, we need to encode it into bytes. That’s what UTF-8 does.
 
-    // parse the JSON from JSON to object and return it
-    const converted_data=JSON.parse(data) // parse converts JSON data to a regular JS object.
+    const converted_data=JSON.parse(data) // parse converts JSON data to a regular JS object. "objects like parsely"
     return converted_data
 }
 
-function writeDb(obj, dbName ='db.json'){
+function writeDb(obj, dbName ='db.json'){ // writes data to a JSON file. 
     // check that a user has passed in an object
     if (!obj){
         return
     }
 
     try{
-        // convert our object to the JSON format
-        let converted_data=JSON.stringify(obj) // stringify turns an object into JSON
-        fs.writeFileSync(dbName, converted_data)
+        let converted_data=JSON.stringify(obj) // Converts the JavaScript object into a JSON string. "Jason likes strings". Even though "converted_data" is in the readDb function, they are completely unrelated because they exist in different functions. each function has it's own local scope.
+        fs.writeFileSync(dbName, converted_data) // Writes that JSON string to a file (default: 'db.json') synchronously.
         console.log('Save successful')
-        // save JSON to our JSON database
 
     }catch (err) {
         console.log('Failed to save data\n', err.message)
     }
 }
 
-module.exports={ // this is a moduler file and we do this to make sure they're accessible in other files
+module.exports={ // This line exports both functions, so they can be used in other files. 
     readDb, writeDb
 }
