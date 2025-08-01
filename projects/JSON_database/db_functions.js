@@ -7,7 +7,8 @@ function readDb(dbName ='db.json'){ // reads data from a JSON file.
     // To store or send text, we need to encode it into bytes. That’s what UTF-8 does.
 
     const converted_data=JSON.parse(data) // parse converts JSON data to a regular JS object. "objects like parsely"
-    return converted_data
+    return converted_data // The difference between using **return** and **console.log** in the readDb() function comes down to what you want the 
+    // function to do versus what you want to see.
 }
 
 function writeDb(obj, dbName ='db.json'){ // writes data to a JSON file. 
@@ -22,7 +23,10 @@ function writeDb(obj, dbName ='db.json'){ // writes data to a JSON file.
         console.log('Save successful')
 
     }catch (err) {
-        console.log('Failed to save data\n', err.message)
+        console.log('Failed to save data\n', err.message) // err.message is a string that gives a short, human-readable description of the error.
+        // So this line might print:
+        // Failed to save data
+        // ENOENT: no such file or directory, open 'db.json'      
     }
 }
 
