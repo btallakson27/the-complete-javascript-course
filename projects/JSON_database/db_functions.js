@@ -19,7 +19,7 @@ function writeDb(obj, dbName ='db.json'){ // writes data to a JSON file.
 
     try{
         let converted_data=JSON.stringify(obj) // Converts the JavaScript object into a JSON string. "Jason likes strings". Even though "converted_data" is in the readDb function, they are completely unrelated because they exist in different functions. each function has it's own local scope.
-        fs.writeFileSync(dbName, converted_data) // Writes that JSON string to a file (default: 'db.json') synchronously.
+        fs.writeFileSync(dbName, converted_data) // // THE dbName HERE IS THE MOST COMMON THING YOU MISS!!! YOU MUST TELL THE FUNCTION WHERE TO WRITE THE CODE!!! Writes that JSON string to a file (default: 'db.json') synchronously.
         console.log('Save successful')
 
     }catch (err) {
